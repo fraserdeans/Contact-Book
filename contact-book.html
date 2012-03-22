@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+    <script src='ember.js'></script>
+    <script src='app.js'></script>
+
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        background: #EEE;
+        margin: 0;
+        padding: 0;
+        font-family: Lucida Sans;
+        font-size: 1.6rem;
+      }
+      header {
+        width: 100%;
+        background: #DDD;
+        padding: 5px 0;
+        box-shadow: 0 1px 2px #AAA;
+      }
+      h1 {
+        width: 600px;
+        margin: 0 auto;
+        font-family: 'Lobster 1.4';
+        font-size: 3rem;
+      }
+      #form {
+        width: 600px;
+        margin: 20px auto 0 auto;
+      }
+      #content {
+        width: 600px;
+        margin: 20px auto 0 auto;
+        border-radius: 5px;
+        background: #DDD;
+        padding: 10px;
+        box-shadow: 0 1px 1px #AAA;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      ul li {
+        padding: 5px 0;
+        font-size: 1.6rem;
+        border-bottom: 1px solid #CCC;
+      }
+      ul li:last-child {
+        border-bottom: 1px solid #DDD;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Contact book
+      </h1>
+    </header>
+    <div id="form">
+      <script type="text/x-handlebars" data-template-name="addContactView">
+        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="telephone" placeholder="Telephone number" />
+        <button {{action "addContact"}}>Add</button>
+      </script>
+    </div>
+    <div id='content'>
+      <ul>
+        <script type="text/x-handlebars">
+          {{#each ContactList.contactController}}
+            <li>{{name}}: {{telephoneNumber}}</li>
+          {{/each}}
+        </script>
+      </ul>
+    </div>
+  </body>
+</html>
